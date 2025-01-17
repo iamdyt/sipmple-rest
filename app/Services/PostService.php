@@ -25,7 +25,7 @@ class PostService
     public function updatePost(array $postData) : void {
         $post = Post::query()->where('id', $postData['id'])->first();
         throw_if(blank($post), CustomException::class, 'Post not found');
-        abort_if(auth()->id() == $post->user_id, 403, 'Unauthorized Access');
+        abort_if(auth()->id() != $post->user_id, 403, 'Unauthorized Access');
         if(!$post->update($postData)){
             throw new CustomException('Post update failed');
         }
@@ -33,8 +33,9 @@ class PostService
 
     public function deletePost(string $slug) : void {
         $post = Post::query()->where('slug', $slug)->first();
-        throw_if(!$post->delete(), CustomException::class, 'Post deletion failed');
         abort_if(auth()->id() !== $post->user_id, 403, 'Unauthorized Access');
+        throw_if(!$post->delete(), CustomException::class, 'Post deletion failed');
+       
     }
 }
 
