@@ -1,0 +1,402 @@
+{
+	"info": {
+		"_postman_id": "569c5d98-0160-42ba-913b-25b7ae5e4b1c",
+		"name": "simpleRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18216305"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"olanlokunlanre@gmail.com\",\n    \"username\":\"larry\",\n    \"password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"Request successful.\",\n    \"data\": {\n        \"email\": \"olanlokunlanre@gmail.com\",\n        \"username\": \"larry\",\n        \"updated_at\": \"2025-01-17T18:12:12.000000Z\",\n        \"created_at\": \"2025-01-17T18:12:12.000000Z\",\n        \"id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"larry\",\n    \"password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"larry\",\n    \"password\":\"passwordd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"Request successful.\",\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"larry\",\n        \"email\": \"olanlokunlanre@gmail.com\",\n        \"token\": \"2|iaFyXzg2r4eGW3mbcWkcULXYUCNS1wid1hAh0iTV0750c8c6\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Create-Post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"hello-word\",\n    \"contents\":\"sample-post\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/post/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create-Post",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"hello-word\",\n    \"contents\":\"sample-post\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/post/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"post",
+										"create"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"Request successful.\",\n    \"data\": {\n        \"title\": \"hello-word\",\n        \"contents\": \"sample-post\",\n        \"slug\": \"hello-word370mg\",\n        \"user_id\": 1,\n        \"id\": 3\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "View-Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/post/view/hello-word370mg",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post",
+								"view",
+								"hello-word370mg"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "View-Post",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"Request successful.\",\n    \"data\": {\n        \"id\": 3,\n        \"title\": \"hello-word\",\n        \"slug\": \"hello-word370mg\",\n        \"contents\": \"sample-post\",\n        \"user_id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update-Post",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"hello-word\",\n    \"contents\":\"sample-postz\",\n    \"id\" : \"3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/post/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update-Post",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"hello-word\",\n    \"contents\":\"sample-postz\",\n    \"id\" : \"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/post/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"post",
+										"update"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"Post updated successfully\",\n    \"data\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete-Post",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "apllication/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/post/delete/hello-wordzfxgi",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post",
+								"delete",
+								"hello-wordzfxgi"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete-Post",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "apllication/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/post/delete/hello-wordzfxgi",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"post",
+										"delete",
+										"hello-wordzfxgi"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"Post deleted successfully\",\n    \"data\": []\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "2|iaFyXzg2r4eGW3mbcWkcULXYUCNS1wid1hAh0iTV0750c8c6",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
